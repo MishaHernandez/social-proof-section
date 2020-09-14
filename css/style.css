@@ -8,37 +8,84 @@
   --dark-grayish-magenta: hsl(303, 10%, 53%);
   --light-grayish-magenta: hsl(300, 24%, 96%);
   --white: hsl(0, 0%, 100%);
-  --spartan: Spartan, sans-serif;
+  --spartan: "Spartan", sans-serif;
 }
 
 body {
   margin: 0;
   font-size: 15px;
   font-family: var(--spartan);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: left top no-repeat url(../images/bg-pattern-top-mobile.svg), right bottom no-repeat url(../images/bg-pattern-bottom-mobile.svg);
+}
+@media (min-width: 1110px) {
+  body {
+    background: left top no-repeat url(../images/bg-pattern-top-desktop.svg), right bottom no-repeat url(../images/bg-pattern-bottom-desktop.svg);
+  }
 }
 
 .container {
   width: 85%;
+  height: 100%;
   max-width: 1110px;
-  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+}
+@media (min-width: 1110px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 47%);
+  }
 }
 
 .header {
   text-align: center;
   max-width: 424px;
 }
+@media (min-width: 1110px) {
+  .header {
+    text-align: left;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    justify-self: start;
+    align-self: end;
+  }
+}
 .header__title {
   color: var(--very-dark-magenta);
 }
+@media (min-width: 1110px) {
+  .header__title {
+    font-size: 45px;
+    line-height: 1;
+    margin-bottom: 15px;
+  }
+}
 .header__paragraph {
   color: var(--dark-grayish-magenta);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.8;
 }
 
-section {
-  margin-bottom: 3rem;
+.rated-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
-
-.rated {
+@media (min-width: 1110px) {
+  .rated-section {
+    width: 90%;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    justify-self: end;
+    align-self: end;
+  }
+}
+.rated-section .rated {
   text-align: center;
   padding: 1rem;
   color: var(--very-dark-magenta);
@@ -47,61 +94,111 @@ section {
   margin-bottom: 1rem;
   max-width: 444px;
 }
-.rated__category {
+@media (min-width: 1110px) {
+  .rated-section .rated {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+@media (min-width: 1110px) {
+  .rated-section .rated:nth-child(2) {
+    margin-left: 2rem;
+  }
+}
+@media (min-width: 1110px) {
+  .rated-section .rated:nth-child(3) {
+    margin-left: 4rem;
+  }
+}
+.rated-section .rated__category {
+  margin-top: 8px;
   margin-bottom: 0;
+  font-weight: 700;
+  font-size: 14px;
+}
+@media (min-width: 1110px) {
+  .rated-section .rated__category {
+    margin-top: 0;
+  }
 }
 
 .testimonials {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center;
+}
+@media (min-width: 1110px) {
+  .testimonials {
+    align-self: center;
+    grid-column: 1/-1;
+    grid-row: 2/3;
+  }
 }
 @media (min-width: 1300px) {
   .testimonials {
     justify-content: space-between;
   }
 }
-
-.card {
+.testimonials .card {
   background-color: var(--very-dark-magenta);
   color: #fff;
-  padding: 2rem;
+  padding: 2.5rem 2rem 2rem;
   margin-bottom: 1rem;
   border-radius: 8px;
   max-width: 350px;
+  font-size: 13px;
 }
-.card__author {
+@media (min-width: 1236px) {
+  .testimonials .card:nth-child(2) {
+    margin-top: 2rem;
+  }
+  .testimonials .card:nth-child(3) {
+    margin-top: 4rem;
+  }
+}
+.testimonials .card__author {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 1.5rem;
 }
-.card__author-image {
+.testimonials .card__author-image {
   height: 40px;
   margin-right: 1.5rem;
 }
-.card__author-image img {
+.testimonials .card__author-image img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-.card__author-data {
+.testimonials .card__author-data {
   height: 40px;
 }
-.card__author-data p {
+.testimonials .card__author-data p {
   margin: 0;
 }
-.card__author-data p:last-child {
+.testimonials .card__author-data p:first-child {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.testimonials .card__author-data p:last-child {
   color: var(--soft-pink);
 }
-.card__message {
-  line-height: 1.5;
+.testimonials .card__message {
+  line-height: 1.7;
   margin-bottom: 0;
 }
 
 .attribution {
   font-size: 11px;
   text-align: center;
+}
+@media (min-width: 1110px) {
+  .attribution {
+    grid-column: 1/-1;
+  }
 }
 .attribution a {
   color: #3e52a3;
