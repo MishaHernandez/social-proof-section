@@ -140,7 +140,7 @@ body {
     @media (min-width: 1300px) {
         justify-content: space-between;
     }
-    
+
     .card {
         background-color: var(--very-dark-magenta);
         color: #fff;
@@ -167,6 +167,7 @@ body {
     
             &-image {
                 height: 40px;
+                width: 40px;
                 margin-right: 1.5rem;
                 img {
                     width: 100%;
